@@ -15,8 +15,7 @@ print(type(app), isinstance(app, tkinter.Tk))
 def button_callback():
     serial = entry_0.get()
     estacion = entry_1.get()
-    piso = optionmenu_1.get()
-    send = send_asset_data(serial, estacion, piso)
+    send = send_asset_data(serial, estacion)
     label_3.configure(text=send)
     text_1.insert("0.0", send+"\n")
 
@@ -39,10 +38,6 @@ entry_0.insert(0,"TEST")
 
 entry_1 = customtkinter.CTkEntry(master=frame_1, placeholder_text="Estación de trabajo")
 entry_1.pack(pady=10, padx=5)
-
-optionmenu_1 = customtkinter.CTkOptionMenu(frame_1, values=["17", "13", "7"])
-optionmenu_1.pack(pady=10, padx=5)
-optionmenu_1.set("Piso")
 
 
 button_1 = customtkinter.CTkButton(master=frame_1, command=button_callback, text="Enviar")
